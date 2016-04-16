@@ -1,14 +1,15 @@
 function* generate(i) {
-    yield i+1;
+    var value = yield i+1;
     yield i+2;
     yield i+3;
 }
-
+var l = console.log.bind(null, 'generator==>')
 var gen = generate(10);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
+l(gen.next().value);
+l(gen.next().value);
+l(gen.next().value);
+l(gen.next().value);
+
 
 function* generate1() {
     var i = 0;
@@ -26,7 +27,8 @@ function* generate2(i) {
 
 var gen2 = generate2(10);
 while(true) {
-  var val = gen2.next()
+  var val
+  val = gen2.next(val)
   if(val.done){
     break 
   }

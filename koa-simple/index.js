@@ -1,4 +1,5 @@
 var co = require('co')
+var request = require('node-fetch')
 
 function SimpleKoa(){
   this.middlewares = []
@@ -33,7 +34,8 @@ var app = new SimpleKoa();
 
 app.use(function *(next){
     this.body = '1';
-    yield (function* (a){this.body += a}).bind(this)('hello')
+    this.body += yield Promise.resolve('A')
+    yield (function* (a){this.body += a}).bind(this)('A')
     yield next
     this.body += '5';
     console.log(this.body);
@@ -41,6 +43,8 @@ app.use(function *(next){
 });
 app.use(function *(next){
     this.body += '2';
+    var tmp = yield request('https://api.github.com/users/jjvein').then(data=>{return data.json()})
+    this.body += '(' + tmp.name + ')'
     yield next;
     this.body += '4';
     return 'b'
@@ -51,7 +55,6 @@ app.use(function *(next){
     return 'c'
 });
 app.use(function *(next){
-  this.body += 'A'
   yield next
   return 'd'
 })

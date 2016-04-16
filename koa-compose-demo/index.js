@@ -3,8 +3,9 @@ var koaCompose = require('koa-compose')
 
 function* a(next) {
   var a = 3; 
-  yield next;
   console.log(a)
+  yield next;
+
 
 }
 
@@ -15,5 +16,5 @@ function* b(){
 var ret = koaCompose([a, b])
 
 
-console.log(ret())
+console.log(ret().next())
 

@@ -1,0 +1,17 @@
+{
+  "apps" : {
+    "name"               : "koa-pure",
+    "script"             : "index.js",
+    "env": {
+      "COMMON_VARIABLE": "true",
+      "NODE_ENV": "development"
+    },
+    "exec_interpreter"   : "node",
+    "node_args"          : "--harmony",
+    "exec_mode"          : "cluster_mode",
+    "instances"          : 1,
+    "log_date_format"    : "YYYY-MM-DD HH:mm Z",
+    "max_memory_restart" : "600M",
+    "watch"              : true
+  }
+}

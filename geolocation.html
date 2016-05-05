@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title >Geolocation Test Page</title>
+    </head>
+    <body>
+        <div id="out"> </div>
+    </body>
+    <script>
+        function outPut() {
+            var node = document.getElementById('out')
+            if(!node) return
+            if(!navigator.geolocation) {
+                node.innerHTML = 'Sorry, don\'t support geolocation'
+            }
+            function success(location) {
+                var lat = location.coords.latitude,
+                        lng = location.coords.longitude
+
+                node.innerHTML = 'Latitude is ' + lat + ' and longitute is ' + lng
+
+                var img = new Image
+                img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + lat + "," + lng + "&zoom=13&size=300x300&sensor=false"
+                node.appendChild(img)
+
+            }
+
+            function error() {
+                node.innerHTML = 'Sorry, something got wrong when getting location data'
+            }
+
+            navigator.geolocation.getCurrentPosition(success, error)
+        }
+
+        outPut()
+    </script>
+</html>

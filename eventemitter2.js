@@ -7,7 +7,7 @@ var radio = new Radio(station)
 
 radio.on('open', function(station){
   console.log(station.name + ' at ' + station.freq)
-  console.log('?🎼?.....')
+  console.log('Music.....')
 })
 
 radio.on('close', function(station){

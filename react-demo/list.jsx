@@ -13,6 +13,7 @@ var ReactList = props => {
         <div onClick={handleClick.bind(null, i)} key={i}>{item}</div> 
       ) 
     })}
+    Yes you are
     </div>
   )
 }

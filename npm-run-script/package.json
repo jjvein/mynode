@@ -1,0 +1,23 @@
+{
+  "name": "npm-run-script",
+  "version": "1.0.0",
+  "description": "测试npm run test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "b": "browserify main.js --debug -o dest/bundle.js",
+    "w": "watchify main.js -o dest/bundle.js -dv",
+    "catw": "catw *.css -o dest/bundle.css -v",
+    "build": "npm run w & npm run catw"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "minify": "^2.0.9",
+    "uniq": "^1.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "uglify": "^0.1.5"
+  }
+}

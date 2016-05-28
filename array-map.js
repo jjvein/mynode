@@ -48,3 +48,13 @@ var validData = mixedEmails.map(lowercase)
 console.log('third example:', validData)
 }
 
+
+{
+  //map return a new Array
+  let students = ['Alex', 'Tony', 'Steve', 'JJvein']
+  var studentsS = students.map((item, i)=>{
+    return item + '-' + i 
+  })
+
+  console.log(studentsS)
+}

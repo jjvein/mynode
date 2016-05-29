@@ -1,5 +1,7 @@
 //可以自定义对象的遍历函数
-//注意： 1. 使用[Symbol.iterator] , 2. 定义的函数必须是一个 generator
+//注意： 
+//1. 必须实现：[Symbol.iterator], 否则代码会undefined
+//2. 定义的[Symbol.iterator]函数必须是一个 generator
 
 var fibonacci = {
   [Symbol.iterator]: function*() {
